@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Earn With Your Skills — Starter Site</title>
+  <meta name="description" content="One-page starter website to sell services & digital products online. Customize and publish to start earning." />
+  <style>
+    :root{ --accent:#ff6b6b; --muted:#f6f7fb; --dark:#222; --glass: rgba(255,255,255,0.6); }
+    *{box-sizing:border-box} body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;margin:0;background:linear-gradient(180deg,#fbfbff 0%, #f0f6f9 100%);color:var(--dark);line-height:1.5}
+    .container{max-width:1100px;margin:0 auto;padding:28px}
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:56px;height:56px;border-radius:10px;background:var(--accent);display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+    nav a{margin-left:14px;color:var(--dark);text-decoration:none;font-weight:600}
+    .hero{display:flex;gap:28px;align-items:center;background:white;padding:28px;border-radius:14px;box-shadow:0 6px 20px rgba(20,30,50,0.06)}
+    .hero-left{flex:1}
+    .cta{display:inline-block;margin-top:14px;padding:12px 18px;border-radius:10px;background:var(--accent);color:white;text-decoration:none;font-weight:700}
+    .hero-right{width:320px}
+    .card{background:white;padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(20,30,50,0.06)}
+
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
+    .service, .product{padding:14px;border-radius:10px;background:linear-gradient(180deg,#fff,#fbfdff);border:1px solid rgba(0,0,0,0.04)}
+    .service h4,.product h4{margin:0 0 8px}
+    .price{font-weight:800}
+
+    .cta-secondary{display:inline-block;margin-top:10px;padding:10px 14px;border-radius:8px;background:transparent;border:2px solid var(--accent);color:var(--accent);text-decoration:none;font-weight:700}
+
+    footer{margin-top:28px;text-align:center;color:#666;padding:12px}
+
+    /* cart modal */
+    .cart-btn{position:fixed;right:18px;bottom:18px;background:var(--accent);color:white;border-radius:999px;padding:12px 16px;box-shadow:0 8px 20px rgba(0,0,0,0.12);border:none;font-weight:700}
+    .cart-modal{position:fixed;right:18px;bottom:70px;width:360px;max-height:70vh;overflow:auto;background:white;border-radius:12px;padding:12px;box-shadow:0 12px 36px rgba(10,20,50,0.12);display:none}
+    .cart-item{display:flex;justify-content:space-between;padding:8px 4px;border-bottom:1px dashed #eee}
+
+    /* responsive */
+    @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.hero{flex-direction:column}.hero-right{width:100%}.container{padding:18px}}
+    @media(max-width:560px){.grid{grid-template-columns:1fr}}
+
+    .badge{display:inline-block;padding:6px 8px;border-radius:999px;background:var(--muted);font-weight:700}
+
+    /* contact */
+    form input, form textarea{width:100%;padding:10px;border-radius:8px;border:1px solid #e6e9ef;margin-top:8px}
+    form button{margin-top:8px;padding:10px 12px;border-radius:8px;background:var(--accent);color:white;border:none;font-weight:700}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">EG</div>
+        <div>
+          <div style="font-weight:800">EarnGrow</div>
+          <div style="font-size:12px;color:#666">Start selling your skills & digital products</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-left">
+        <h1 style="margin:0">Make money online — start today</h1>
+        <p style="color:#555">This starter site helps you sell services (freelance tasks) and digital products (guides, templates, presets). Customize, add real prices and payment links, and publish.</p>
+        <a class="cta" href="#products" onclick="scrollToSection('products')">Start selling now</a>
+        <a class="cta-secondary" href="#contact" onclick="scrollToSection('contact')">Contact / Book a call</a>
+
+        <div style="margin-top:18px" class="card">
+          <strong>How to use</strong>
+          <ul style="margin:8px 0 0;padding-left:18px;color:#444">
+            <li>Replace product names, prices, and payment links</li>
+            <li>Publish to GitHub Pages, Netlify or Vercel</li>
+            <li>Promote on Instagram, WhatsApp, and local groups</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="card">
+          <h3 style="margin:0">Quick stats</h3>
+          <p style="margin:8px 0">A simple site + 1 product or service + social promotion = first sales in days.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <div class="badge">No code needed</div>
+            <div class="badge">Digital products</div>
+            <div class="badge">Freelance gigs</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" style="margin-top:18px">
+      <h2>Services you can sell</h2>
+      <div class="grid">
+        <div class="service">
+          <h4>Website Setup</h4>
+          <div>Build a one-page website for small businesses or individuals.</div>
+          <div class="price">₹1,500</div>
+          <button style="margin-top:8px" onclick="addToCart({id:'svc1',title:'Website Setup',price:1500})">Add to cart</button>
+        </div>
+        <div class="service">
+          <h4>Social Media Starter Pack</h4>
+          <div>3 Instagram posts + captions + hashtag list.</div>
+          <div class="price">₹600</div>
+          <button style="margin-top:8px" onclick="addToCart({id:'svc2',title:'Social Media Pack',price:600})">Add to cart</button>
+        </div>
+        <div class="service">
+          <h4>Consultation / Call</h4>
+          <div>30-minute call to plan business or product strategy.</div>
+          <div class="price">₹300</div>
+          <button style="margin-top:8px" onclick="addToCart({id:'svc3',title:'Consultation Call',price:300})">Add to cart</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="products" style="margin-top:22px">
+      <h2>Digital Products</h2>
+      <div class="grid">
+        <div class="product">
+          <h4>Instagram Templates (ZIP)</h4>
+          <div>Editable Canva templates — sell repeatedly.</div>
+          <div class="price">₹250</div>
+          <button style="margin-top:8px" onclick="addToCart({id:'prod1',title:'IG Templates',price:250})">Add to cart</button>
+        </div>
+        <div class="product">
+          <h4>Skincare Guide PDF</h4>
+          <div>Eco-friendly skincare routine guide (20 pages).</div>
+          <div class="price">₹199</div>
+          <button style="margin-top:8px" onclick="addToCart({id:'prod2',title:'Skincare Guide',price:199})">Add to cart</button>
+        </div>
+        <div class="product">
+          <h4>Resume + Cover Letter</h4>
+          <div>Professional resume template + sample cover letter.</div>
+          <div class="price">₹350</div>
+          <button style="margin-top:8px" onclick="addToCart({id:'prod3',title:'Resume Bundle',price:350})">Add to cart</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" style="margin-top:22px">
+      <h2>About you</h2>
+      <p>Replace this section with your name, a photo, and the services you enjoy offering. Keep the message short and friendly: who you help, and how.</p>
+    </section>
+
+    <section id="contact" style="margin-top:22px">
+      <h2>Contact / Book</h2>
+      <form onsubmit="sendMessage(event)">
+        <label>Name</label>
+        <input id="name" required />
+        <label>Email or WhatsApp</label>
+        <input id="email" required />
+        <label>Message</label>
+        <textarea id="message" rows="4" required></textarea>
+        <button type="submit">Send message</button>
+      </form>
+    </section>
+
+    <footer>
+      <div>Made for creators — customize and start selling. &nbsp;|&nbsp; Example PayPal link placeholder: <small>https://paypal.me/yourname</small></div>
+    </footer>
+
+    <button class="cart-btn" onclick="toggleCart()">Cart (<span id="cart-count">0</span>)</button>
+    <div class="cart-modal" id="cart-modal">
+      <h3 style="margin:0">Your Cart</h3>
+      <div id="cart-items" style="margin-top:8px"></div>
+      <div style="margin-top:10px">Total: <strong id="cart-total">₹0</strong></div>
+      <div style="display:flex;gap:8px;margin-top:10px">
+        <button onclick="checkout()">Checkout</button>
+        <button onclick="clearCart()" style="background:transparent;border:1px solid #ddd">Clear</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // simple cart using localStorage
+    const CART_KEY = 'earn_site_cart_v1';
+    function loadCart(){try{const raw = localStorage.getItem(CART_KEY); return raw?JSON.parse(raw):[];}catch(e){return []}}
+    function saveCart(c){localStorage.setItem(CART_KEY,JSON.stringify(c));renderCart();}
+    function addToCart(item){const c = loadCart(); const found = c.find(x=>x.id===item.id); if(found){found.qty++;}else{c.push({...item,qty:1})} saveCart(c); alert(item.title + ' added to cart');}
+    function renderCart(){const c = loadCart(); const container = document.getElementById('cart-items'); container.innerHTML=''; let total=0; c.forEach(i=>{ const div=document.createElement('div'); div.className='cart-item'; div.innerHTML=`<div>${i.title} x ${i.qty}</div><div>₹${i.price*i.qty}</div>`; container.appendChild(div); total += i.price*i.qty; }); document.getElementById('cart-total').innerText = '₹'+total; document.getElementById('cart-count').innerText = c.reduce((s,x)=>s+x.qty,0);}
+    function toggleCart(){const m=document.getElementById('cart-modal'); m.style.display = m.style.display==='block'?'none':'block'; renderCart();}
+    function clearCart(){localStorage.removeItem(CART_KEY); renderCart();}
+    function checkout(){const c=loadCart(); if(c.length===0){alert('Cart is empty'); return;} const total = c.reduce((s,x)=>s+x.price*x.qty,0); // For demo, redirect to PayPal.me — you should replace with real checkout
+      const message = 'Total: ₹'+total+'\nYou will be redirected to a payment link. After payment, contact the seller with the order details.';
+      if(confirm(message)){ // redirect to a placeholder; change to your PayPal.me or Razorpay/Stripe host
+        // Build a quick label so user knows
+        const payLink = 'https://paypal.me/yourname/'+Math.round(total);
+        window.open(payLink,'_blank');
+      }}
+
+    // contact form — simple mailto fallback
+    function sendMessage(e){e.preventDefault(); const name=document.getElementById('name').value; const email=document.getElementById('email').value; const message=document.getElementById('message').value; const subject = encodeURIComponent('Website contact from '+name); const body = encodeURIComponent('Name: '+name+'\nContact: '+email+'\n\n'+message); const mailto = 'mailto:youremail@example.com?subject='+subject+'&body='+body; window.location.href = mailto; }
+
+    function scrollToSection(id){document.getElementById(id).scrollIntoView({behavior:'smooth'});}
+    // initialize
+    document.addEventListener('DOMContentLoaded',()=>{renderCart();});
+  </script>
+</body>
+</html>
